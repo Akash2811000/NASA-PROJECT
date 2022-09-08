@@ -5,9 +5,6 @@ on :
   pull_request :
     branches : [main]
 jobs : 
-  env:
-      CI: true
-      MONGO_URL: mongodb://localhost/nasa
   build:
     runs-on : macos-latest
     steps: 
