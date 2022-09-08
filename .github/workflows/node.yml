@@ -13,5 +13,5 @@ jobs :
         uses : actions/setup-node@v1
         with :
           node-version : '16'
-      - run : ./server npm install
-      - run : ./server npm test
+      - run :  npm install --prefix server
+      - run :  npm test
