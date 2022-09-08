@@ -18,4 +18,4 @@ jobs :
         with:
           mongodb-version: ${{ matrix.mongodb-version }}
       - run :  npm install --prefix server
-     # - run :  npm test --prefix server
+      - run :  npm test --prefix server
