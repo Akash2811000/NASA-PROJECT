@@ -1,0 +1,17 @@
+name : NASA project ci demo
+on : 
+  push :
+    branches : [main]
+  pull_request :
+    branches : [main]
+jobs : 
+  build:
+    runs-on : macos-latest
+    steps: 
+      - uses : actions/checkout@v1
+      - name : Use node.js version 16
+        uses : action/setup-node@v1
+        with :
+          node-version : '16'
+      - run : npm install
+      - run : npm test
