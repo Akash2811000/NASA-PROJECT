@@ -1,6 +1,6 @@
 const request = require('supertest');
 const app = require('../../app');
-const { mongooseConnect } = require('../../services/mongose');
+const { mongooseConnect, mongoDisconnect } = require('../../services/mongose');
 const { loadPlanetData } = require('../../model/planet.model');
 
 describe('Launcg api' , () => {
@@ -8,7 +8,12 @@ describe('Launcg api' , () => {
         await mongooseConnect();
         await loadPlanetData();
       })
+    
+    afterAll(async()=>{
 
+        await mongoDisconnect();
+
+    });
     describe('Test Get launch', ()=> {
             test('response 200' , async ()=> {
                 const response = await request(app)
